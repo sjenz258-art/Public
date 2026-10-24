@@ -1,7 +1,7 @@
 'use strict';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 let saved={};try{saved=JSON.parse(localStorage.getItem('number-garden')||'{}')}catch{}
-const config={game:'find',mode:'timed',range:100,duration:'30',custom:45,sound:false,level:1,...saved.settings};
+const config={game:'missing',mode:'timed',range:100,duration:'30',custom:45,sound:false,level:1,...saved.settings,game:'missing'};
 let completed=saved.completed||[],records=saved.records||{},state=null,raf=0,generation=0,audio;
 function persist(){try{localStorage.setItem('number-garden',JSON.stringify({settings:config,records,completed}))}catch{}}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
